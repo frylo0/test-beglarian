@@ -1,0 +1,14 @@
+services:
+  nextjs-service:
+    build:
+      context: ./../../
+      dockerfile: ./docker/production/Dockerfile.nextjs
+    container_name: test-beglarian-nextjs
+    image: nextjs-service
+    restart: always
+    ports:
+      - '3003:3000'
+    env_file:
+      - ./../../.env
+    environment:
+      VIPS_CONCURRENCY: 16 # Value of thread mathcing number of CPU cores
