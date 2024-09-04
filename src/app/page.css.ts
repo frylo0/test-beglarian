@@ -1,115 +1,284 @@
-import { style } from '@vanilla-extract/css';
+import { globalStyle, style } from '@vanilla-extract/css';
 
-import { colorMode, fonts } from '@/styles/bundle.css';
+import { calc, colors, font, fonts } from '@/styles/bundle.css';
 
-export const sCenter = style({
-	display: 'flex',
-	flexDirection: 'column',
-	justifyContent: 'center',
-	alignItems: 'center',
-	position: 'relative',
-	padding: '4rem 0',
+export const sMain = style({
+	color: colors.black,
+	fontFamily: fonts.inter,
+	backgroundColor: '#F9F9F9',
+
+	minHeight: '100svh',
+	paddingBlockStart: 48,
+	paddingBlockEnd: 80 + 72, // Navbar height + Figma view padding
 });
 
-export const sCounter = style({
-	marginBlockStart: '2em',
+export const sDevice = style({
+	maxWidth: 360,
+	width: '100%',
+	margin: 'auto',
+});
+
+export const sHeader = style({
 	display: 'flex',
 	flexDirection: 'row',
-	gap: '1em',
+	justifyContent: 'space-between',
+	padding: '15px 0',
 });
 
-export const sCode = style({
-	fontWeight: '700',
-	fontFamily: 'var(--font-mono)',
+export const sLabel = style({
+	...font(fonts.inter, 500, 18, 26),
 });
 
-export const sGrid = style({
-	display: 'grid',
-	gridTemplateColumns: 'repeat(4,minmax(25%,auto))',
-	width: 'var(--max-width)',
-	maxWidth: '100%',
+export const sBadges = style({
+	display: 'flex',
+	flexDirection: 'row',
+	gap: 8,
 });
 
-export const sLogo = style({
-	position: 'relative',
-	userSelect: 'none',
-
-	'@media': {
-		[colorMode.dark]: {
-			filter: 'invert(1) drop-shadow(0 0 0.3rem #ffffff70)',
-		},
-	},
-});
-
-export const sVercelLogo = style({
-	'@media': {
-		[colorMode.dark]: {
-			filter: 'invert(1)',
-		},
-	},
+export const sBadge = style({
+	display: 'flex',
+	flexDirection: 'row',
+	alignItems: 'center',
+	backgroundColor: colors.white,
+	padding: '4px 6px',
+	borderRadius: 8,
+	gap: 4,
+	...font(fonts.inter, 500, 14, 20),
 });
 
 export const sCard = style({
-	padding: '1rem 1.2rem',
-	borderRadius: 'var(--border-radius)',
-	background: 'rgba(var(--card-rgb),0)',
-	border: '1px solid #777',
-	transition: 'background 200ms , border 200ms',
-	width: '300px',
+	backgroundColor: colors.white,
+	borderRadius: 20,
+	border: `1px solid #F3F3F3`,
+	display: `flex`,
+	flexDirection: 'row',
 });
 
-export const sCardH2 = style({
-	marginBottom: '0.7rem',
-	fontFamily: fonts.inter,
-	fontWeight: 400,
+export const sCurrentTest = style({
+	flexDirection: 'column',
+	padding: 24,
+	gap: 16,
 });
 
-export const sCardP = style({
-	margin: '0',
-	opacity: '0.6',
-	fontSize: '0.9rem',
-	lineHeight: '1.5',
-	maxWidth: '30ch',
+export const sInfo = style({
+	display: 'grid',
+	gridTemplateRows: `1fr 1fr`,
+	gridTemplateColumns: `58px 1fr 24px`,
+	gridTemplateAreas: `
+		"icon title    arrow"
+		"icon category arrow"`,
+	gap: '0 16px',
 });
 
-export const sDescription = style({
-	display: 'inherit',
-	justifyContent: 'inherit',
-	alignItems: 'inherit',
-	fontSize: '0.85rem',
-	maxWidth: 'var(--max-width)',
-	width: '100%',
-	zIndex: '2',
-	fontFamily: 'var(--font-mono)',
+export const sIcon = style({
+	borderRadius: '50%',
+	padding: 13,
+	backgroundColor: '#FFE3DD',
+	gridArea: 'icon',
 });
 
-export const sDescriptionA = style({
+export const sTitle = style({
+	gridArea: 'title',
+	alignSelf: 'end',
+	...font(fonts.inter, 600, 20, 26),
+});
+
+export const sCategory = style({
+	gridArea: 'category',
+	alignSelf: 'start',
+	...font(fonts.inter, 400, 14, 20),
+	color: '#87898F',
+});
+
+export const sArrow = style({
+	gridArea: 'arrow',
+	padding: 2.5,
+	backgroundColor: 'transparent',
+	border: 'none',
+	cursor: 'pointer',
+});
+
+export const sProgress = style({});
+
+export const sText = style({
+	...font(fonts.inter, 400, 14, 20),
+});
+
+export const sBar = style({
 	display: 'flex',
-	justifyContent: 'center',
+	flexDirection: 'row',
+	gap: 3,
+	marginBlockStart: 8,
+});
+
+export const sDash = style({
+	height: 6,
+	width: '100%',
+	borderRadius: '1em',
+	backgroundColor: '#52A754',
+	opacity: 0.1,
+});
+
+export const sDashEnabled = style({
+	opacity: 1,
+});
+
+export const sCards = style({
+	display: 'grid',
+	gridTemplateRows: `1fr 1fr 1fr`,
+	gridTemplateColumns: `1fr 1fr`,
+	gap: 8,
+	marginBlockStart: 8,
+
+	'@media': {
+		[`(max-width: 350px)`]: {
+			gridTemplateColumns: '1fr',
+		},
+	},
+});
+
+export const sCardItem = style({
+	padding: '16px 12px',
+	display: 'flex',
+	flexDirection: 'row',
+	gap: 8,
 	alignItems: 'center',
-	gap: '0.5rem',
+
+	selectors: {
+		'&:nth-child(5)': {
+			gridColumn: '1 / 3',
+
+			'@media': {
+				[`(max-width: 350px)`]: {
+					gridColumn: '1 / 2',
+				},
+			},
+		},
+	},
 });
 
-export const sDescriptionP = style({
+export const sCardTitle = style({
+	...font(fonts.inter, 500, 16, 20),
+});
+
+export const sCardIcon = style({
+	padding: 8,
 	position: 'relative',
-	margin: '0',
-	padding: '1rem',
-	backgroundColor: 'rgba(var(--callout-rgb),0.5)',
-	border: '1px solid rgba(var(--callout-border-rgb),0.3)',
-	borderRadius: 'var(--border-radius)',
+	overflow: 'hidden',
+	width: 40,
+	minWidth: 40,
+	height: 40,
+
+	'::before': {
+		content: '',
+		position: 'absolute',
+		top: 0,
+		left: 0,
+		right: 0,
+		bottom: 0,
+		borderRadius: '50%',
+		backgroundColor: 'var(--icon-color)',
+		opacity: 0.1,
+	},
 });
 
-export const sMain = style({
+export const sHighlights = style({
+	display: 'flex',
+	flexDirection: 'row',
+	justifyContent: 'space-between',
+	marginBlockStart: 24,
+});
+
+export const sHighlight = style({
 	display: 'flex',
 	flexDirection: 'column',
-	justifyContent: 'space-between',
+	gap: 8,
+	width: '25%',
 	alignItems: 'center',
-	padding: '6rem',
-	minHeight: '100vh',
-	color: 'white',
-	fontFamily: fonts.inter,
 });
 
-export const sMainA = style({
-	color: 'white',
+export const sHTitle = style({
+	textAlign: 'center',
+	...font(fonts.inter, 400, 14, 20),
+});
+
+export const sHIcon = style({
+	width: 58,
+	height: 58,
+	borderRadius: '50%',
+	backgroundColor: '#FF7355',
+	padding: 15,
+});
+
+export const sNavbar = style({
+	position: 'fixed',
+	bottom: 0,
+	left: 0,
+	right: 0,
+	backgroundColor: colors.white,
+	borderRadius: '24px 24px 0 0',
+});
+
+export const sNavMenu = style({
+	width: '100%',
+});
+
+export const sNavList = style({
+	width: '100%',
+	display: 'flex',
+	flexDirection: 'row',
+});
+
+export const sNavItem = style({
+	width: '25%',
+});
+
+export const sNavActive = style({});
+
+export const sNavLink = style({
+	display: 'flex',
+	flexDirection: 'column',
+	alignItems: 'center',
+	gap: 4,
+	padding: '8px 5px',
+});
+
+export const sNavIcon = style({
+	padding: 8,
+	position: 'relative',
+	display: 'flex',
+	flexDirection: 'row',
+	justifyContent: 'center',
+	alignItems: 'center',
+
+	'::after': {
+		content: '',
+		position: 'absolute',
+		top: 0,
+		left: 0,
+		right: 0,
+		bottom: 0,
+		opacity: 0.25,
+		borderRadius: 10,
+	},
+
+	selectors: {
+		[`${sNavActive} &::after`]: {
+			backgroundColor: '#FFE3DD',
+		},
+	},
+});
+
+globalStyle(`${sNavActive} ${sNavIcon} svg`, {
+	fill: '#FF7355',
+});
+
+export const sNavTitle = style({
+	...font(fonts.inter, 500, 12, 14),
+
+	selectors: {
+		[`${sNavActive} &`]: {
+			color: '#FF7355',
+		},
+	},
 });
