@@ -1,13 +1,12 @@
-import { dbConnect } from '@/db/connect';
-import { Person } from '@/db/models/person';
+import fs from 'fs';
+import path from 'path';
 
 export const dynamic = 'force-dynamic';
 
 export async function GET() {
-	await dbConnect();
-
 	try {
-		const res = await Person.find({});
+		const buffer = fs.readFileSync(path.join(process.cwd(), 'public', 'data', 'tests.json'));
+		const res = JSON.parse(buffer.toString());
 		return Response.json(res, { status: 200 });
 	} catch (error) {
 		return Response.json(error, { status: 502 });

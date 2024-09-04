@@ -1,0 +1,84 @@
+{
+	"questions": [
+		{
+			"id": 1,
+			"question": "What is the difference between block, inline, and inline-block elements in CSS?"
+		},
+		{
+			"id": 2,
+			"question": "How does the CSS box model work, and what are its components?"
+		},
+		{
+			"id": 3,
+			"question": "What are the new features introduced in HTML5?"
+		},
+		{
+			"id": 4,
+			"question": "What is the difference between CSS Flexbox and CSS Grid?"
+		},
+		{
+			"id": 5,
+			"question": "Explain the concept of responsive web design."
+		},
+		{
+			"id": 6,
+			"question": "What are media queries in CSS, and how do they work?"
+		},
+		{
+			"id": 7,
+			"question": "What is the Document Object Model (DOM) and how does it relate to HTML and JavaScript?"
+		},
+		{
+			"id": 8,
+			"question": "What are the different types of CSS positioning, and when should each be used?"
+		},
+		{
+			"id": 9,
+			"question": "Explain event delegation in JavaScript and its benefits."
+		},
+		{
+			"id": 10,
+			"question": "What are the differences between localStorage, sessionStorage, and cookies in web browsers?"
+		},
+		{
+			"id": 11,
+			"question": "How does asynchronous JavaScript work, and what are Promises and async/await?"
+		},
+		{
+			"id": 12,
+			"question": "What is Cross-Origin Resource Sharing (CORS), and how is it handled?"
+		},
+		{
+			"id": 13,
+			"question": "Explain the purpose of HTTP status codes like 200, 404, and 500."
+		},
+		{
+			"id": 14,
+			"question": "What are Single Page Applications (SPAs), and how do they differ from traditional websites?"
+		},
+		{
+			"id": 15,
+			"question": "What is the difference between client-side rendering (CSR) and server-side rendering (SSR)?"
+		},
+		{
+			"id": 16,
+			"question": "How do web workers in JavaScript improve performance?"
+		},
+		{
+			"id": 17,
+			"question": "What are CSS preprocessors, and what advantages do they offer?"
+		},
+		{
+			"id": 18,
+			"question": "How do you optimize a website's performance, especially with respect to loading times?"
+		},
+		{
+			"id": 19,
+			"question": "What are the best practices for improving the accessibility of web applications?"
+		},
+		{
+			"id": 20,
+			"question": "Explain the difference between GET and POST HTTP methods."
+		}
+	]
+}
