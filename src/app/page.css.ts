@@ -1,4 +1,4 @@
-import { globalStyle, style } from '@vanilla-extract/css';
+import { style } from '@vanilla-extract/css';
 
 import { colors, font, fonts } from '@/styles/bundle.css';
 
@@ -38,14 +38,6 @@ export const sBadge = style({
 	borderRadius: 8,
 	gap: 4,
 	...font(fonts.inter, 500, 14, 20),
-});
-
-export const sCard = style({
-	backgroundColor: colors.white,
-	borderRadius: 20,
-	border: `1px solid #F3F3F3`,
-	display: `flex`,
-	flexDirection: 'row',
 });
 
 export const sCurrentTest = style({
@@ -131,77 +123,11 @@ export const sCards = style({
 	},
 });
 
-export const sCardItem = style({
-	padding: '16px 12px',
-	display: 'flex',
-	flexDirection: 'row',
-	gap: 8,
-	alignItems: 'center',
-
-	selectors: {
-		'&:nth-child(5)': {
-			gridColumn: '1 / 3',
-
-			'@media': {
-				[`(max-width: 350px)`]: {
-					gridColumn: '1 / 2',
-				},
-			},
-		},
-	},
-});
-
-export const sCardTitle = style({
-	...font(fonts.inter, 500, 16, 20),
-});
-
-export const sCardIcon = style({
-	padding: 8,
-	position: 'relative',
-	overflow: 'hidden',
-	width: 40,
-	minWidth: 40,
-	height: 40,
-
-	'::before': {
-		content: '',
-		position: 'absolute',
-		top: 0,
-		left: 0,
-		right: 0,
-		bottom: 0,
-		borderRadius: '50%',
-		backgroundColor: 'var(--icon-color)',
-		opacity: 0.1,
-	},
-});
-
 export const sHighlights = style({
 	display: 'flex',
 	flexDirection: 'row',
 	justifyContent: 'space-between',
 	marginBlockStart: 24,
-});
-
-export const sHighlight = style({
-	display: 'flex',
-	flexDirection: 'column',
-	gap: 8,
-	width: '25%',
-	alignItems: 'center',
-});
-
-export const sHTitle = style({
-	textAlign: 'center',
-	...font(fonts.inter, 400, 14, 20),
-});
-
-export const sHIcon = style({
-	width: 58,
-	height: 58,
-	borderRadius: '50%',
-	backgroundColor: '#FF7355',
-	padding: 15,
 });
 
 export const sNavbar = style({
@@ -221,58 +147,4 @@ export const sNavList = style({
 	width: '100%',
 	display: 'flex',
 	flexDirection: 'row',
-});
-
-export const sNavItem = style({
-	width: '25%',
-});
-
-export const sNavActive = style({});
-
-export const sNavLink = style({
-	display: 'flex',
-	flexDirection: 'column',
-	alignItems: 'center',
-	gap: 4,
-	padding: '8px 5px',
-});
-
-export const sNavIcon = style({
-	padding: 8,
-	position: 'relative',
-	display: 'flex',
-	flexDirection: 'row',
-	justifyContent: 'center',
-	alignItems: 'center',
-
-	'::after': {
-		content: '',
-		position: 'absolute',
-		top: 0,
-		left: 0,
-		right: 0,
-		bottom: 0,
-		opacity: 0.25,
-		borderRadius: 10,
-	},
-
-	selectors: {
-		[`${sNavActive} &::after`]: {
-			backgroundColor: '#FFE3DD',
-		},
-	},
-});
-
-globalStyle(`${sNavActive} ${sNavIcon} svg`, {
-	fill: '#FF7355',
-});
-
-export const sNavTitle = style({
-	...font(fonts.inter, 500, 12, 14),
-
-	selectors: {
-		[`${sNavActive} &`]: {
-			color: '#FF7355',
-		},
-	},
 });

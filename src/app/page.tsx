@@ -1,8 +1,7 @@
 'use client';
 
 import cn from 'clsx';
-import Link, { LinkProps } from 'next/link';
-import { CSSProperties, ReactNode } from 'react';
+import Link from 'next/link';
 
 import SVG_Book from '@/assets/vector/book.svg';
 import SVG_Bookmark from '@/assets/vector/bookmark.svg';
@@ -21,6 +20,10 @@ import SVG_Rocket from '@/assets/vector/rocket.svg';
 import SVG_Route from '@/assets/vector/route.svg';
 import SVG_Sign from '@/assets/vector/sign.svg';
 import SVG_TvPlay from '@/assets/vector/tv-play.svg';
+import { Card } from '@/components/block/Card/Card';
+import { sCard } from '@/components/block/Card/Card.css';
+import { Highlight } from '@/components/block/Highlight/Highlight';
+import { NavItem } from '@/components/block/NavItem/NavItem';
 import { Adaptive } from '@/components/common/Adaptive/Adaptive';
 import { sDevice } from '@/components/common/Adaptive/Adaptive.css';
 import { useApp$ } from '@/stores/app.store';
@@ -29,32 +32,20 @@ import {
 	sBadge,
 	sBadges,
 	sBar,
-	sCard,
-	sCardIcon,
-	sCardItem,
 	sCards,
-	sCardTitle,
 	sCategory,
 	sCurrentTest,
 	sDash,
 	sDashEnabled,
 	sHeader,
-	sHIcon,
-	sHighlight,
 	sHighlights,
-	sHTitle,
 	sIcon,
 	sInfo,
 	sLabel,
 	sMain,
-	sNavActive,
 	sNavbar,
-	sNavIcon,
-	sNavItem,
-	sNavLink,
 	sNavList,
 	sNavMenu,
-	sNavTitle,
 	sProgress,
 	sText,
 	sTitle,
@@ -138,59 +129,3 @@ export default function Page() {
 		</main>
 	);
 }
-
-interface CardProps {
-	className?: string;
-	href: LinkProps['href'];
-	icon: ReactNode;
-	iconColor?: CSSProperties['color'];
-	title: ReactNode;
-}
-
-const Card: React.FC<CardProps> = ({ className, href, title, icon, iconColor = '#6B2ABC' }) => {
-	const cssVars = {
-		'--icon-color': iconColor,
-	} as CSSProperties;
-
-	return (
-		<Link className={cn(sCardItem, sCard, className)} style={cssVars} href={href}>
-			<figure className={cn(sCardIcon)}>{icon}</figure>
-			<p className={cn(sCardTitle)}>{title}</p>
-		</Link>
-	);
-};
-
-interface HighlightProps {
-	className?: string;
-	title: ReactNode;
-	icon: ReactNode;
-	href: LinkProps['href'];
-}
-
-const Highlight: React.FC<HighlightProps> = ({ className, href, title, icon }) => {
-	return (
-		<Link href={href} className={cn(sHighlight, className)}>
-			<figure className={cn(sHIcon)}>{icon}</figure>
-			<p className={cn(sHTitle)}>{title}</p>
-		</Link>
-	);
-};
-
-interface NavItemProps {
-	className?: string;
-	title: ReactNode;
-	icon: ReactNode;
-	href: LinkProps['href'];
-	active?: boolean;
-}
-
-const NavItem: React.FC<NavItemProps> = ({ className, title, icon, href, active }) => {
-	return (
-		<li className={cn(sNavItem, active && sNavActive, className)}>
-			<Link href={href} className={cn(sNavLink)}>
-				<figure className={cn(sNavIcon)}>{icon}</figure>
-				<p className={cn(sNavTitle)}>{title}</p>
-			</Link>
-		</li>
-	);
-};

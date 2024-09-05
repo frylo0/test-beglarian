@@ -4,23 +4,11 @@ import cn from 'clsx';
 import { useRouter } from 'next/navigation';
 
 import SVG_ArrowBack from '@/assets/vector/arrow-back.svg';
-import SVG_Check from '@/assets/vector/check.svg';
-import SVG_Subtract from '@/assets/vector/subtract.svg';
+import { Question } from '@/components/block/Question/Question';
 import { Adaptive } from '@/components/common/Adaptive/Adaptive';
 import { sDevice } from '@/components/common/Adaptive/Adaptive.css';
 import { useApp$ } from '@/stores/app.store';
-import {
-	sBtnBack,
-	sGrid,
-	sHeader,
-	sMain,
-	sQuestion,
-	sQuestionCheckmark,
-	sQuestionEnabled,
-	sQuestionShadow,
-	sSubtitle,
-	sTitle,
-} from './page.css';
+import { sBtnBack, sGrid, sHeader, sMain, sSubtitle, sTitle } from './page.css';
 
 export default function Page() {
 	const router = useRouter();
@@ -57,22 +45,3 @@ export default function Page() {
 		</main>
 	);
 }
-
-interface QuestionProps {
-	className?: string;
-	id: number;
-	enabled: boolean;
-	onClick?: (id: number) => void;
-}
-
-const Question: React.FC<QuestionProps> = ({ className, id, enabled, onClick }) => {
-	const handleClick = () => onClick?.(id);
-
-	return (
-		<li className={cn(sQuestion, enabled && sQuestionEnabled, className)} onClick={handleClick}>
-			{id}
-			<SVG_Subtract className={cn(sQuestionShadow)} />
-			{enabled && <SVG_Check className={cn(sQuestionCheckmark)} />}
-		</li>
-	);
-};
