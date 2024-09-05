@@ -58,11 +58,14 @@ import {
 	sText,
 	sTitle,
 } from './page.css';
+import { useApp$ } from '@/stores/app.store';
 
 export default function Page() {
-	const dashes = [1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+	const app$ = useApp$();
 
-	const passedCount = dashes.filter((item) => !!item).length;
+	const dashes = app$.learning;
+
+	const passedCount = dashes.filter((item) => item.answered).length;
 	const totalCount = dashes.length;
 
 	return (
@@ -99,8 +102,8 @@ export default function Page() {
 							{passedCount} questions out of {totalCount} passed
 						</p>
 						<div className={cn(sBar)}>
-							{dashes.map((enabled, i) => (
-								<div className={cn(sDash, enabled && sDashEnabled)} key={i} />
+							{dashes.map((_, i) => (
+								<div className={cn(sDash, i < passedCount && sDashEnabled)} key={i} />
 							))}
 						</div>
 					</div>
