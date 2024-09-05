@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { calc, colors, font, fonts } from '@/styles/bundle.css';
+import { colors, font, fonts } from '@/styles/bundle.css';
 
 export const sMain = style({
 	color: colors.black,

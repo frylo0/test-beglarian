@@ -7,7 +7,7 @@ services:
     image: nextjs-service
     restart: always
     ports:
-      - '3003:3000'
+      - '3013:3000'
     env_file:
       - ./../../.env
     environment:

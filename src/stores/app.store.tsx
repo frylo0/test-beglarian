@@ -54,7 +54,7 @@ export const useApp$ = create<State & Actions>((set, get) => ({
 				id: question.id,
 				question: question.question,
 				answered: answered || false,
-			})
+			});
 		}
 		set({ learning });
 

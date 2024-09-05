@@ -23,6 +23,7 @@ import SVG_Sign from '@/assets/vector/sign.svg';
 import SVG_TvPlay from '@/assets/vector/tv-play.svg';
 import { Adaptive } from '@/components/common/Adaptive/Adaptive';
 import { sDevice } from '@/components/common/Adaptive/Adaptive.css';
+import { useApp$ } from '@/stores/app.store';
 import {
 	sArrow,
 	sBadge,
@@ -58,7 +59,6 @@ import {
 	sText,
 	sTitle,
 } from './page.css';
-import { useApp$ } from '@/stores/app.store';
 
 export default function Page() {
 	const app$ = useApp$();
