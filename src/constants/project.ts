@@ -6,3 +6,7 @@ export const clientAuthUsers: TClientAuthUsers = [
 		password: '1234',
 	},
 ];
+
+export enum LocalStorageKeys {
+	Answers = 'answers',
+}

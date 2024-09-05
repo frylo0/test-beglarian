@@ -12,16 +12,17 @@ import SVG_Crown from '@/assets/vector/crown.svg';
 import SVG_Fire from '@/assets/vector/fire.svg';
 import SVG_Gamepad from '@/assets/vector/gamepad.svg';
 import SVG_Graduation from '@/assets/vector/graduation.svg';
+import SVG_Home from '@/assets/vector/home.svg';
 import SVG_Learn from '@/assets/vector/learn.svg';
 import SVG_Pen from '@/assets/vector/pen.svg';
+import SVG_Profile from '@/assets/vector/profile.svg';
+import SVG_Rank from '@/assets/vector/rank.svg';
 import SVG_Rocket from '@/assets/vector/rocket.svg';
+import SVG_Route from '@/assets/vector/route.svg';
 import SVG_Sign from '@/assets/vector/sign.svg';
 import SVG_TvPlay from '@/assets/vector/tv-play.svg';
-import SVG_Home from '@/assets/vector/home.svg';
-import SVG_Route from '@/assets/vector/route.svg';
-import SVG_Rank from '@/assets/vector/rank.svg';
-import SVG_Profile from '@/assets/vector/profile.svg';
 import { Adaptive } from '@/components/common/Adaptive/Adaptive';
+import { sDevice } from '@/components/common/Adaptive/Adaptive.css';
 import {
 	sArrow,
 	sBadge,
@@ -36,7 +37,6 @@ import {
 	sCurrentTest,
 	sDash,
 	sDashEnabled,
-	sDevice,
 	sHeader,
 	sHIcon,
 	sHighlight,

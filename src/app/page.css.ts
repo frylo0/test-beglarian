@@ -1,6 +1,6 @@
 import { globalStyle, style } from '@vanilla-extract/css';
 
-import { calc, colors, font, fonts } from '@/styles/bundle.css';
+import { colors, font, fonts } from '@/styles/bundle.css';
 
 export const sMain = style({
 	color: colors.black,
@@ -10,12 +10,6 @@ export const sMain = style({
 	minHeight: '100svh',
 	paddingBlockStart: 48,
 	paddingBlockEnd: 80 + 72, // Navbar height + Figma view padding
-});
-
-export const sDevice = style({
-	maxWidth: 360,
-	width: '100%',
-	margin: 'auto',
 });
 
 export const sHeader = style({
